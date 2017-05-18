@@ -13,9 +13,8 @@
      $_in = $_GET["in"];
      $_out = $_GET["out"];
      $_vbat = $_GET["vbat"];
-     
      if ( $fl = fopen('sigfoxData.json','a')) {
-       fwrite($fl,"\"data\": { \"device\" : \"". $_device . "\", "
+	fwrite($fl,"\"data\": { \"device\" : \"". $_device . "\", "
                              ."\"time\" :\"" . $_time . "\", "
 			     ."\"id\" :\"" . $_id . "\", "
                              ."\"temperature\" :\"" . $_temp . "\", "
