@@ -1,0 +1,31 @@
+<html>
+  <head>
+   <title>Recupérateur SigFox</title>
+  </head>
+  <body>
+  <?php
+     $_device = $_GET["device"];
+     $_time = $_GET["time"];
+     $_id = $_GET["id"];
+     $_temp = $_GET["temp"];
+     $_hum = $_GET["hum"];
+     $_poids = $_GET["poids"];
+     $_in = $_GET["in"];
+     $_out = $_GET["out"];
+     $_vbat = $_GET["vbat"];
+     
+     if ( $fl = fopen('sigfoxData.json','a')) {
+       fwrite($fl,"\"data\": { \"device\" : \"". $_device . "\", "
+                             ."\"time\" :\"" . $_time . "\", "
+			     ."\"id\" :\"" . $_id . "\", "
+                             ."\"temperature\" :\"" . $_temp . "\", "
+                             ."\"humidite\" :\"" . $_hum . "\", "
+                             ."\"poids\" :\"" . $_poids . "\", "
+			     ."\"Bee_in\" :\"" . $_in . "\", "
+			     ."\"Bee_out\" :\"" . $_out . "\", "
+			     ."\"Vbat\" :\"" . $_vbat . "\" }\n" );
+       fclose($fl);
+     }
+  ?>
+  </body>
+</html>
