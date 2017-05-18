@@ -77,9 +77,9 @@ void loop()
 if(f_wdt == 1)
   {
       now = rtc.now();
-       if (now.minute()!=heure)
+       if (now.hour()!=heure)
         { 
-          heure=now.minute();
+          heure=now.hour();
           Serial.print("Heure differente: ");Serial.println (heure);
           // on charge les valeurs
           payload.data.id=1;
