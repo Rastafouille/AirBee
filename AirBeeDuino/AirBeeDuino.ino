@@ -6,8 +6,9 @@
 volatile int f_wdt=1;
 
 
-// SHT15 Temperature et humidité
-  #include <SHT1x.h>
+// SHT15 Temperature et humidité https://github.com/practicalarduino/SHT1x
+
+#include <SHT1x.h>
   #define dataPin  2
   #define clockPin 3
   SHT1x sht1x(dataPin, clockPin);
@@ -15,7 +16,7 @@ volatile int f_wdt=1;
 
 // DS1307 RTC connected via I2C and Wire lib
   #include <Wire.h>
-  #include "RTClib.h"
+  #include "RTClib.h" //https://github.com/adafruit/RTClib.git
   RTC_DS1307 rtc;
   char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
