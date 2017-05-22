@@ -46,7 +46,7 @@ volatile int f_wdt=1;
 int heure = 99;
 DateTime now;
 
-
+//lecture Vbat
 
 void setup()
 {
@@ -89,7 +89,7 @@ if(f_wdt == 1)
           payload.data.weight=0;
           payload.data.bee_in=0;
           payload.data.bee_out=0;
-          payload.data.vbat=0;
+          payload.data.vbat= int(analogRead(A3) * (50 / 1023.0));
            
           //on affiche
             print_payload();
