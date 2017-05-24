@@ -31,8 +31,7 @@ Via un système 100% autonome en énergie et communication
 L'Arduino centralise les données est les envoie au backend sigfox. On a droit à 140 messages de 12Octets par jour, ca passe juste sans optimisation.
 
 Payload : 
-
-'ID::uint:8 Temp::int:16:little-endian Hum::uint:16:little-endian Poids::uint:16:little-endian IN::uint:16:little-endian OUT::uint:16:little-endian Vbat::uint:8'
+	ID::uint:8 Temp::int:16:little-endian Hum::uint:16:little-endian Poids::uint:16:little-endian IN::uint:16:little-endian OUT::uint:16:little-endian Vbat::uint:8
 
 Sigfox renvoie les données via des CallBacks vers serveur perso (php-->json) ou backend web (Carrots et ConnectView), je suis aussi en train de regarder DjangoREST pour voir la meilleure solution.
 Le but est d'avoir un dashboard pour suivre l'évolution des paramètres, sans tout redévelopper.
