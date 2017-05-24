@@ -31,6 +31,7 @@ Via un système 100% autonome en énergie et communication
 L'Arduino centralise les données est les envoie au backend sigfox. On a droit à 140 messages de 12Octets par jour, ca passe juste sans optimisation.
 
 Payload : 
+	
 	ID::uint:8 Temp::int:16:little-endian Hum::uint:16:little-endian Poids::uint:16:little-endian IN::uint:16:little-endian OUT::uint:16:little-endian Vbat::uint:8
 
 Sigfox renvoie les données via des CallBacks vers serveur perso (php-->json) ou backend web (Carrots et ConnectView), je suis aussi en train de regarder DjangoREST pour voir la meilleure solution.
@@ -41,7 +42,10 @@ Il reste du travail sur l'intégration de toute l'electronique sur un plateau de
 
 # Perspectives
 Il va falloir travailler sur le choix des composants pour optimiser le cout total, encore trop élevé
+
 Dessiner une carte electronique dediée.
+
 Peut etre créer un reseau Xbee local sur 5 ruches pour un seul module Sigfox.
+
 Rajouter une station météo?
 
