@@ -15,15 +15,15 @@ Via un système 100% autonome en énergie et communication
 	lipoRider <https://www.seeedstudio.com/Lipo-Rider-v1.3-p-2403.html> (9.5USD)
 
 ## Coté intelligence :
-	Carte ucontrolleur Arduino nano (5€)
+- Carte ucontrolleur Arduino nano (5€)
 
 ## Coté communication :
-	Kit Carte Breakout Sigfox BRKWS01 + Antenne +fdp TTC + un an abonnement <https://yadom.fr/carte-breakout-sfm10r1.html> (26€)
+- Kit Carte Breakout Sigfox BRKWS01 + Antenne +fdp TTC + un an abonnement <https://yadom.fr/carte-breakout-sfm10r1.html> (26€)
 
 ## Coté Capteur :
-	Compteur I/O abeilles : projet BeeCounter2 <http://www.instructables.com/id/Honey-Bee-Counter-II/> (25USD)
-	Capteur température humidité SHT11 <https://www.adafruit.com/product/246> (35USD)
-	Capteur poids X4 <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> (4€)
+- Compteur I/O abeilles : projet BeeCounter2 <http://www.instructables.com/id/Honey-Bee-Counter-II/> (25USD)
+- Capteur température humidité SHT11 <https://www.adafruit.com/product/246> (35USD)
+- Capteur poids X4 <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> (4€)
   
 150€ en gros
 
