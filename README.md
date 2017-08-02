@@ -23,7 +23,7 @@ Via un système 100% autonome en énergie et communication
 ## Coté Capteur :
 - Compteur I/O abeilles : projet BeeCounter2 <http://www.instructables.com/id/Honey-Bee-Counter-II/> (25USD)
 - Capteur température humidité SHT11 <https://www.adafruit.com/product/246> (35USD)
-- Capteur poids X4 <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> (4€)
+- Capteur poids X4 + Load Cell Amplifier - HX711 <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> et <https://fr.aliexpress.com/item/1PCS-HX711-Weighing-Sensor-Dual-Channel-24-Bit-Precision-A-D-Module-Pressure-Sensor-for-Arduino/32653087154.html?spm=a2g0s.9042311.0.0.zTDiLJ> (5€)
   
 150€ en gros
 
