@@ -1,4 +1,10 @@
 
+//WEIGHT
+#include "HX711.h"
+HX711 scale;
+float final;
+float inter;
+
 //SLEEP MODE http://donalmorrissey.blogspot.fr/2010/04/sleeping-arduino-part-5-wake-up-via.html
 #include <avr/sleep.h>
 #include <avr/power.h>
@@ -70,6 +76,13 @@ void setup()
   WDTCSR = 1<<WDP0 | 1<<WDP3; /* 8.0 seconds */
   /* Enable the WD interrupt (note no reset). */
   WDTCSR |= _BV(WDIE);
+  
+  // WEIGHT
+  // parameter "gain" is ommited; the default value 128 is used by the library
+  // HX711.DOUT	- pin #A1
+  // HX711.PD_SCK	- pin #A0
+  scale.begin(A1, A0);
+  scale.set_scale();
 }
 
 void loop()
@@ -86,7 +99,7 @@ if(f_wdt == 1)
           payload.data.id=1;
           payload.data.temperature = int16_t (sht1x.readTemperatureC()*10);
           payload.data.humidity = int16_t (sht1x.readHumidity()*10);
-          payload.data.weight=0;
+          payload.data.weight=int16_t (getweight()*10);
           payload.data.bee_in=0;
           payload.data.bee_out=0;
           payload.data.vbat= int(analogRead(A3) * (50 / 1023.0));
@@ -180,4 +193,15 @@ void enterSleep(void)
   power_all_enable();
   delay(100);Serial.println("SLEEP Mode disactivated");
 }
+
+float getweight(void)
+{
+  scale.power_up();
+  inter=scale.get_units(10);
+  final=(inter+310000)/21500;
+  scale.power_down();			        // put the ADC in sleep mode
+  return final;
+}
+
+
 
