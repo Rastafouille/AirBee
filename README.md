@@ -16,11 +16,7 @@ Via un système 100% autonome en énergie et communication
 
 3 fils partent du module d'alim vers la carte (vcc,gnd,Tbat)
 
-<img src="Picture/alim.jpg" width="200"/>
-
-![alt text](https://github.com/Rastafouille/AirBee/raw/master/Picture/alim.jpg )
-
-![alt text](https://github.com/Rastafouille/AirBee/raw/master/Picture/alim3D.jpg)
+<img src="Picture/alim.jpg" width="500"/> <img src="Picture/alim3D.jpg" width="500"/>
 
 ## Coté intelligence :
 - Carte ucontrolleur Arduino nano (5€)
@@ -35,9 +31,10 @@ Via un système 100% autonome en énergie et communication
   
 150€ en gros
 vue d'ensemble au 08/10/2017
-![alt text](https://github.com/Rastafouille/AirBee/raw/master/Picture/ensemble.jpg)
-![alt text](https://github.com/Rastafouille/AirBee/raw/master/Picture/plateau.jpg)
-![alt text](https://github.com/Rastafouille/AirBee/raw/master/Picture/electronique.jpg)
+<img src="Picture/ensemble.jpg" width="500"/>
+<img src="Picture/plateau.jpg" width="500"/>
+<img src="Picture/electronique.jpg" width="500"/>
+
 
 ## Fonctionnement
 L'Arduino centralise les données est les envoie au backend sigfox. On a droit à 140 messages de 12 Octets par jour, ca passe juste sans optimisation.
