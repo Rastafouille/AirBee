@@ -16,8 +16,8 @@ Via un système 100% autonome en énergie et communication
 
 3 fils partent du module d'alim vers la carte (vcc,gnd,Tbat)
 
-<center><img src="Picture/alim.jpg" width="500"/></center>
--> <img src="Picture/alim3D.jpg" width="500"/> <-
+<img src="Picture/alim.jpg" width="500"/>
+<img src="Picture/alim3D.jpg" width="500"/>
 
 ## Coté intelligence :
 - Carte ucontrolleur Arduino nano (5€)
@@ -31,7 +31,9 @@ Via un système 100% autonome en énergie et communication
 - Capteur poids X4 + Load Cell Amplifier - HX711 <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> et <https://fr.aliexpress.com/item/1PCS-HX711-Weighing-Sensor-Dual-Channel-24-Bit-Precision-A-D-Module-Pressure-Sensor-for-Arduino/32653087154.html?spm=a2g0s.9042311.0.0.zTDiLJ> (5€)
   
 150€ en gros
-vue d'ensemble au 08/10/2017
+
+vue d'ensemble au 08/10/2017 :
+
 <img src="Picture/ensemble.jpg" width="500"/>
 <img src="Picture/plateau.jpg" width="500"/>
 <img src="Picture/electronique.jpg" width="500"/>
