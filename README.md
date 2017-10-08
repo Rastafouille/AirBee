@@ -16,7 +16,7 @@ Via un système 100% autonome en énergie et communication
 
 3 fils partent du module d'alim vers la carte (vcc,gnd,Tbat)
 
-<img src="Picture/alim.jpg" width="500"/> <img src="Picture/alim3D.jpg" width="500"/>
+<center><img src="Picture/alim.jpg" width="500"/><img src="Picture/alim3D.jpg" width="500"/></center>
 
 ## Coté intelligence :
 - Carte ucontrolleur Arduino nano (5€)
