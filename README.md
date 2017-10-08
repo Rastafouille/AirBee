@@ -1,18 +1,22 @@
 ﻿# AirBee V1.0 en cours
 
 L'idée est de transmettre toutes les données suivantes :
-- température dans la ruche
-- humidité dans la ruche
-- masse de la ruche
-- nombre d'abeilles entrées
-- nombre d'abeille sortie
-- tension de la batterie
+- température dans la ruche -- fait
+- humidité dans la ruche -- fait
+- masse de la ruche -- fait
+- nombre d'abeilles entrées -- en cours
+- nombre d'abeille sortie -- en cours
+- tension de la batterie -- fait
 Via un système 100% autonome en énergie et communication
 	
 ## Coté alimentation : 
 - Une lipo 5Ah <http://www.cdiscount.com/telephonie/batteries-telephone/easyacc-batterie-externe-5000mah-ultra-slim-charge/f-14487-eas0700686513077.html> (33€)
 - Panneau solaire 3W <https://www.digikey.fr/product-detail/fr/seeed-technology-co-ltd/313070001/1597-1414-ND/5488054> (12USD)
 - lipoRider <https://www.seeedstudio.com/Lipo-Rider-v1.3-p-2403.html> (9.5USD)
+
+3 fils partent du module d'alim vers la carte (vcc,gnd,Tbat)
+
+![alt text](https://github.com/Rastafouille/AirBee/raw/master/Picture/alim.jpg)
 
 ## Coté intelligence :
 - Carte ucontrolleur Arduino nano (5€)
@@ -26,6 +30,8 @@ Via un système 100% autonome en énergie et communication
 - Capteur poids X4 + Load Cell Amplifier - HX711 <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> et <https://fr.aliexpress.com/item/1PCS-HX711-Weighing-Sensor-Dual-Channel-24-Bit-Precision-A-D-Module-Pressure-Sensor-for-Arduino/32653087154.html?spm=a2g0s.9042311.0.0.zTDiLJ> (5€)
   
 150€ en gros
+vue d'ensemble au 08/10/2017
+![alt text](https://github.com/Rastafouille/AirBee/raw/master/Picture/ensemble.jpg)
 
 ## Fonctionnement
 L'Arduino centralise les données est les envoie au backend sigfox. On a droit à 140 messages de 12Octets par jour, ca passe juste sans optimisation.
