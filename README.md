@@ -16,8 +16,10 @@ Via un système 100% autonome en énergie et communication
 
 3 fils partent du module d'alim vers la carte (vcc,gnd,Tbat)
 
-<img src="Picture/alim.jpg" alt="Drawing" style="width: 200px;"/>
+<img src="Picture/alim.jpg" alt="Drawing" style="width: 100px;"/>
+
 ![alt text](https://github.com/Rastafouille/AirBee/raw/master/Picture/alim.jpg )
+
 ![alt text](https://github.com/Rastafouille/AirBee/raw/master/Picture/alim3D.jpg)
 
 ## Coté intelligence :
