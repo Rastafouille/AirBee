@@ -34,10 +34,9 @@ Via un système 100% autonome en énergie et communication
 
 vue d'ensemble au 08/10/2017 :
 
-<img src="Picture/ensemble.jpg" width="500"/>
 <img src="Picture/plateau.jpg" width="500"/>
 <img src="Picture/electronique.jpg" width="500"/>
-
+<img src="Picture/ensemble2.jpg" width="500"/>
 
 ## Fonctionnement
 L'Arduino centralise les données est les envoie au backend sigfox. On a droit à 140 messages de 12 Octets par jour, ca passe juste sans optimisation.
