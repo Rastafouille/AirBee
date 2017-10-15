@@ -4,6 +4,7 @@
 HX711 scale;
 float final;
 float inter;
+byte DEBUG = false;
 
 //SLEEP MODE http://donalmorrissey.blogspot.fr/2010/04/sleeping-arduino-part-5-wake-up-via.html
 #include <avr/sleep.h>
@@ -52,21 +53,18 @@ volatile int f_wdt=1;
 int heure = 99;
 DateTime now;
 
-//lecture Vbat
-
 void setup()
 {
   pinMode(13, OUTPUT);
-  Serial.begin(9600); // Open serial connection to report values to host
-  Serial.println("Starting up"); delay(100);
+  
+  if (DEBUG) 
+  { Serial.begin(9600);Serial.println("Starting up"); delay(100);}
   SigFox.begin(9600);
-  rtc.begin();now = rtc.now();print_date();  
+  rtc.begin();now = rtc.now();
+  if (DEBUG){print_date();  }
   // following line sets the RTC to the date & time this sketch was compiled
   // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
    
- //check SF connexion
-  //while (checkSF()!=true) {delay(100);Serial.println("Nok");}
-
  /*** Setup the WDT ***/
   /* Clear the reset flag. */
   MCUSR &= ~(1<<WDRF);
@@ -82,7 +80,8 @@ void setup()
   // HX711.DOUT	- pin #A1
   // HX711.PD_SCK	- pin #A0
   scale.begin(A1, A0);
-  scale.set_scale();
+  //scale.set_scale();
+  scale.tare();
 }
 
 void loop()
@@ -94,7 +93,7 @@ if(f_wdt == 1)
        if (now.hour()!=heure)
         { 
           heure=now.hour();
-          Serial.print("Heure differente: ");Serial.println (heure);
+            if (DEBUG) {Serial.print("Heure differente: ");Serial.println (heure);}
           // on charge les valeurs
           payload.data.id=1;
           payload.data.temperature = int16_t (sht1x.readTemperatureC()*10);
@@ -105,7 +104,7 @@ if(f_wdt == 1)
           payload.data.vbat= int(analogRead(A3) * (50 / 1023.0));
            
           //on affiche
-            print_payload();
+              if (DEBUG) {print_payload();}
           
           // On balance
             envoieSF();
@@ -129,24 +128,9 @@ void print_date ()
     Serial.print(now.second(), DEC);Serial.println();
 }
 
-bool checkSF() // MARCHE PAS...
-{
- SigFox.println("AT");
- if (SigFox.available()) 
-   {
-     while (SigFox.available() > 0) { char inByte = SigFox.read();Serial.write(inByte);}
-   }
-   
-//    (if (SigFox.read()=='OK') Serial.println("connexion module Sigfox OK !");
-//    else Serial.println("connexion module Sigfox NON OK !");)
-  //else Serial.println("NOK");
-  return false;
-  //return true;
-}
-
 void envoieSF() 
 {   
-  Serial.println("ENVOIE SF...");
+  if (DEBUG) {Serial.println("ENVOIE SF...");}
   SigFox.print("AT$SF=");
   for (byte i = 0; i < sizeof(payload); i++) 
   {
@@ -154,7 +138,7 @@ void envoieSF()
     SigFox.print(payload.rawData[i], HEX);
   }
   SigFox.print("\r");
-  Serial.println("ENVOIE SF OK !"); 
+  if (DEBUG) {Serial.println("ENVOIE SF OK !"); }
  }
 
 void print_payload()
@@ -180,27 +164,27 @@ ISR(WDT_vect)
 void enterSleep(void)
 {
   set_sleep_mode(SLEEP_MODE_PWR_SAVE);   
-  sleep_enable();
+  sleep_enable();delay(100);
   
   /* Now enter sleep mode. */
-  Serial.println("SLEEP Mode activated");delay(100);
+    if (DEBUG) {Serial.println("SLEEP Mode activated");}
+    delay(100);
   sleep_mode();
   
-  /* The program will continue from here after the WDT timeout*/
+    /* The program will continue from here after the WDT timeout*/
   sleep_disable(); /* First thing to do is disable sleep. */
   
   /* Re-enable the peripherals. */
-  power_all_enable();
-  delay(100);Serial.println("SLEEP Mode disactivated");
+  power_all_enable();delay(100);
+  if (DEBUG) {Serial.println("SLEEP Mode disactivated");}
 }
-
 float getweight(void)
 {
   scale.power_up();
-  inter=scale.get_units(10);
-  final=(inter+310000)/21500;
+  final=scale.get_value(10)/21500;
   scale.power_down();			        // put the ADC in sleep mode
-  return final;
+  if (final>0) {return final;}
+  else {return 0;}
 }
 
 
