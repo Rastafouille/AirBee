@@ -1,5 +1,7 @@
 ﻿# AirBee V1.0 en cours
 
+<img src="Picture/montagev1.png" width="500"/>
+
 L'idée est de transmettre toutes les données suivantes :
 - température dans la ruche -- fait
 - humidité dans la ruche -- fait
