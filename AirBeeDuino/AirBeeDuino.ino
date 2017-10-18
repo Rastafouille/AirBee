@@ -1,10 +1,12 @@
+//activation du Serial pour le debug
+byte DEBUG = false;
 
-//WEIGHT
+//WEIGHT https://github.com/bogde/HX711
 #include "HX711.h"
 HX711 scale;
 float final;
 float inter;
-byte DEBUG = false;
+
 
 //SLEEP MODE http://donalmorrissey.blogspot.fr/2010/04/sleeping-arduino-part-5-wake-up-via.html
 #include <avr/sleep.h>
@@ -14,11 +16,10 @@ volatile int f_wdt=1;
 
 
 // SHT15 Temperature et humidité https://github.com/practicalarduino/SHT1x
-
 #include <SHT1x.h>
-  #define dataPin  2
-  #define clockPin 3
-  SHT1x sht1x(dataPin, clockPin);
+#define dataPin  2
+#define clockPin 3
+SHT1x sht1x(dataPin, clockPin);
 
 
 // DS1307 RTC connected via I2C and Wire lib
