@@ -1,5 +1,4 @@
-﻿# AirBee V1.0 en cours
-
+﻿# AirBee
 <img src="Picture/montagev1.png" width="500"/>
 
 L'idée est de transmettre toutes les données suivantes :
