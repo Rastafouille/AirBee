@@ -55,10 +55,13 @@ Le but est d'avoir un dashboard pour suivre l'évolution des paramètres, sans t
 Il reste du travail sur l'intégration de toute l'electronique sur un plateau de ruche indépendant, sans pertuber son fonctionnement.
 
 
-# Perspectives
-Supprimer le RTC au profit d'un compteur ?
-Passer directement à la puce sigfox SFM10R1 à 34€ les 10 et pas la carte à 26€ l'unité
-Dessiner une carte electronique dediée. --> en cours <https://circuitmaker.com/Projects/Details/jeremy-seyssaud/AirBee>
+# RELEASE
+v2 : suppression du RTC / suppression de la mise a veille de l'arduino (e remettre pour moins consommer) / modification implantation capteur (c'est pire...) / carte electronique dédiée <https://circuitmaker.com/Projects/Details/jeremy-seyssaud/AirBee>
+
+#A faire :
+Changer de type de capteur <https://fr.aliexpress.com/item/100kg-120kg-parallel-beam-type-load-cell-for-counting-scale-balance-TAL201/32616652058.html?spm=a2g0s.9042311.0.0.10bb6c37t0ZMNg>
+Remettre la mise en veille de la nano
+rajouter le compteur d'abeille
 Peut etre créer un reseau Xbee local sur 5 ruches pour un seul module Sigfox.
-Rajouter une station météo?
+Rajouter une station météo.
 
