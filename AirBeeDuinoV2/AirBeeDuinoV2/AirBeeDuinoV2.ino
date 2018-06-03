@@ -4,7 +4,7 @@ int heure = 99;
 int ahora;
 
 //activation du Serial pour le debug
-byte DEBUG = true;
+byte DEBUG = false;
 
 //WEIGHT https://github.com/bogde/HX711
 #include "HX711.h"
@@ -49,7 +49,7 @@ void setup()
   if (DEBUG) 
   { Serial.begin(9600);Serial.println("Starting up"); delay(100);}
   SigFox.begin(9600);
-  ahora = minute();
+  ahora = hour();
   if (DEBUG){print_date();  }
   // following line sets the RTC to the date & time this sketch was compiled
   // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
@@ -67,9 +67,9 @@ void setup()
 void loop()
 {
   if (DEBUG){print_date();  }
-       if (heure!=minute())
+       if (heure!=hour())
         { 
-          heure=minute();
+          heure=hour();
             if (DEBUG) {Serial.print("Heure differente: ");Serial.println (heure);}
           // on charge les valeurs
           payload.data.id=1;
