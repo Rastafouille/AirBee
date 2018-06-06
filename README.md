@@ -40,7 +40,7 @@ ou que le module <https://yadom.fr/reseaux-iot/sigfox/pack-10-modules-wisol-sfm1
   
 Prix total low cost : 15€ !?
 
-vue d'ensemble au 08/10/2017 :
+vue d'ensemble au 08/10/2017 (premiere version) :
 
 <img src="Picture/plateau.jpg" width="500"/>
 <img src="Picture/electronique.jpg" width="500"/>
