@@ -126,7 +126,7 @@ void print_payload()
 float getweight(void)
 {
   scale.power_up();
-  final=scale.get_value(10)/21500;
+  final=scale.get_value(10)/44250; //21500
   scale.power_down();			        // put the ADC in sleep mode
   //if (final>0) {
   return final;
