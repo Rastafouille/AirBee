@@ -33,11 +33,11 @@ ou que le module <https://yadom.fr/reseaux-iot/sigfox/pack-10-modules-wisol-sfm1
 - Compteur I/O abeilles : projet BeeCounter2 <http://www.instructables.com/id/Honey-Bee-Counter-II/> (25USD)
 - Capteur température humidité SHT11 <https://www.adafruit.com/product/246> (35USD) (2€ sur Aliexpress)
 - v1 : Capteur poids X4 + Load Cell Amplifier - HX711 <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> et <https://fr.aliexpress.com/item/1PCS-HX711-Weighing-Sensor-Dual-Channel-24-Bit-Precision-A-D-Module-Pressure-Sensor-for-Arduino/32653087154.html?spm=a2g0s.9042311.0.0.zTDiLJ> (5€)
-	<img src="Picture/plateau.jpg" width="500"/>
+<img src="Picture/plateau.jpg" width="500"/>
   
   v2 : Un seul capteur 100kg + Load Cell Amplifier - HX711, bcp plus précis et sans dérive <https://fr.aliexpress.com/item/100kg-120kg-parallel-beam-type-load-cell-for-counting-scale-balance-TAL201/32616652058.html?spm=a2g0s.9042311.0.0.10bb6c37t0ZMNg>
-  <img src="Picture/capteur2.1.jpg" width="500"/>
-  <img src="Picture/capteur2.2.jpg" width="500"/>
+<img src="Picture/capteur2.1.jpg" width="500"/>
+<img src="Picture/capteur2.2.jpg" width="500"/>
   
 ## PCB
 
@@ -54,7 +54,7 @@ Fait sur Circuit Maker <https://circuitmaker.com/Projects/Details/jeremy-seyssau
 
 - V1 08/10/2017 
 
-	<img src="Picture/ensemble2.jpg" width="500"/>
+<img src="Picture/ensemble2.jpg" width="500"/>
 
 ## Fonctionnement
 L'Arduino centralise les données est les envoie au backend sigfox. On a droit à 140 messages de 12 Octets par jour, ca passe juste sans optimisation.
@@ -65,9 +65,9 @@ Payload :
 
 Sigfox renvoie les données via des CallBacks vers serveur perso (php-->json) et backend web (app.we-sens.com)
 
-	<img src="Picture/courbes.png" width="500"/>
+<img src="Picture/courbes.png" width="500"/>
 
-	<img src="Picture/poids.png" width="500"/>
+<img src="Picture/poids.png" width="500"/>
 
 
 # RELEASE
