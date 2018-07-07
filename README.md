@@ -26,25 +26,32 @@ Via un système 100% autonome en énergie et communication
 ## Coté communication :
 - Kit Carte Breakout Sigfox BRKWS01 + Antenne +fdp TTC + un an abonnement <https://yadom.fr/carte-breakout-sfm10r1.html> (26€)
 ou que le module <https://yadom.fr/reseaux-iot/sigfox/pack-10-modules-wisol-sfm10r1-pour-le-reseau-sigfox.html> (4€)
+- les données sont affichées sur app.we-sens.com, merci à eux !
 
 ## Coté Capteur :
 - pour avoir l'heure RTC  <https://www.adafruit.com/product/3296> (7.5USD) -- pas indispensable
 - Compteur I/O abeilles : projet BeeCounter2 <http://www.instructables.com/id/Honey-Bee-Counter-II/> (25USD)
 - Capteur température humidité SHT11 <https://www.adafruit.com/product/246> (35USD) (2€ sur Aliexpress)
 - v1 : Capteur poids X4 + Load Cell Amplifier - HX711 <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> et <https://fr.aliexpress.com/item/1PCS-HX711-Weighing-Sensor-Dual-Channel-24-Bit-Precision-A-D-Module-Pressure-Sensor-for-Arduino/32653087154.html?spm=a2g0s.9042311.0.0.zTDiLJ> (5€)
+	<img src="Picture/plateau.jpg" width="500"/>
   
   v2 : Un seul capteur 100kg + Load Cell Amplifier - HX711, bcp plus précis et sans dérive <https://fr.aliexpress.com/item/100kg-120kg-parallel-beam-type-load-cell-for-counting-scale-balance-TAL201/32616652058.html?spm=a2g0s.9042311.0.0.10bb6c37t0ZMNg>
   <img src="Picture/capteur2.1.jpg" width="500"/>
   <img src="Picture/capteur2.2.jpg" width="500"/>
   
-  
-Prix total low cost : 15€ !?
+## PCB
 
-vue d'ensemble au 08/10/2017 (premiere version) :
-
-<img src="Picture/plateau.jpg" width="500"/>
+-V1
 <img src="Picture/electronique.jpg" width="500"/>
-<img src="Picture/ensemble2.jpg" width="500"/>
+
+-V2
+Fait sur Circuit Maker <https://circuitmaker.com/Projects/Details/jeremy-seyssaud/AirBee-simple-version> fabriqué chez <https://www.pcbway.com> pour quelques €.
+
+
+## Vue d'ensemble 
+
+- V1 08/10/2017 
+	<img src="Picture/ensemble2.jpg" width="500"/>
 
 ## Fonctionnement
 L'Arduino centralise les données est les envoie au backend sigfox. On a droit à 140 messages de 12 Octets par jour, ca passe juste sans optimisation.
@@ -53,19 +60,17 @@ Payload :
 	
 	ID::uint:8 Temp::int:16:little-endian Hum::uint:16:little-endian Poids::uint:16:little-endian IN::uint:16:little-endian OUT::uint:16:little-endian Vbat::uint:8
 
-Sigfox renvoie les données via des CallBacks vers serveur perso (php-->json) ou backend web (Carrots et ConnectView), je suis aussi en train de regarder DjangoREST pour voir la meilleure solution.
-Le but est d'avoir un dashboard pour suivre l'évolution des paramètres, sans tout redévelopper.
+Sigfox renvoie les données via des CallBacks vers serveur perso (php-->json) et backend web (app.we-sens.com)
 
-Il reste du travail sur l'intégration de toute l'electronique sur un plateau de ruche indépendant, sans pertuber son fonctionnement.
+	<img src="Picture/courbes.jpg" width="500"/>
+	<img src="Picture/poids.jpg" width="500"/>
 
 
 # RELEASE
-v2 : suppression du RTC / suppression de la mise a veille de l'arduino (e remettre pour moins consommer) / modification implantation capteur (c'est pire...) / carte electronique dédiée <https://circuitmaker.com/Projects/Details/jeremy-seyssaud/AirBee>
+v2 : suppression du RTC / suppression de la mise a veille de l'arduino (e remettre pour moins consommer) / modification implantation capteur (c'est pire...) / carte electronique dédiée
 
 # A faire 
-Changer de type de capteur <https://fr.aliexpress.com/item/100kg-120kg-parallel-beam-type-load-cell-for-counting-scale-balance-TAL201/32616652058.html?spm=a2g0s.9042311.0.0.10bb6c37t0ZMNg>
-Remettre la mise en veille de la nano
-rajouter le compteur d'abeille
+Rajouter le compteur d'abeille
 Peut etre créer un reseau Xbee local sur 5 ruches pour un seul module Sigfox.
 Rajouter une station météo.
 
