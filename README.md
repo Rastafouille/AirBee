@@ -41,16 +41,19 @@ ou que le module <https://yadom.fr/reseaux-iot/sigfox/pack-10-modules-wisol-sfm1
   
 ## PCB
 
--V1
+- v1
+
 <img src="Picture/electronique.jpg" width="500"/>
 
--V2
+-v2
+
 Fait sur Circuit Maker <https://circuitmaker.com/Projects/Details/jeremy-seyssaud/AirBee-simple-version> fabriqué chez <https://www.pcbway.com> pour quelques €.
 
 
 ## Vue d'ensemble 
 
 - V1 08/10/2017 
+
 	<img src="Picture/ensemble2.jpg" width="500"/>
 
 ## Fonctionnement
@@ -63,6 +66,7 @@ Payload :
 Sigfox renvoie les données via des CallBacks vers serveur perso (php-->json) et backend web (app.we-sens.com)
 
 	<img src="Picture/courbes.jpg" width="500"/>
+
 	<img src="Picture/poids.jpg" width="500"/>
 
 
