@@ -3,7 +3,7 @@
 int heure = 99;
 
 //activation du Serial pour le debug
-byte DEBUG = false;
+byte DEBUG = true;
 
 //WEIGHT https://github.com/bogde/HX711
 #include "HX711.h"
@@ -11,11 +11,20 @@ HX711 scale;
 float final;
 float inter;
 
+
+//SLEEP MODE http://donalmorrissey.blogspot.fr/2010/04/sleeping-arduino-part-5-wake-up-via.html
+#include <avr/sleep.h>
+#include <avr/power.h>
+#include <avr/wdt.h>
+volatile int f_wdt=1;
+
+
 // SHT15 Temperature et humidité https://github.com/practicalarduino/SHT1x
 #include <SHT1x.h>
 #define dataPin  2
 #define clockPin 3
 SHT1x sht1x(dataPin, clockPin);
+
 
 // connexion serie pour Sigfox
   #include <SoftwareSerial.h>
@@ -40,7 +49,6 @@ SHT1x sht1x(dataPin, clockPin);
   } payload;
 
 //
-
 void setup()
 {
   pinMode(13, OUTPUT);
@@ -49,9 +57,16 @@ void setup()
   { Serial.begin(9600);Serial.println("Starting up"); delay(100);}
   SigFox.begin(9600);
   if (DEBUG){print_date();  }
-  // following line sets the RTC to the date & time this sketch was compiled
-  // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
-
+  
+ /*** Setup the WDT ***/
+  /* Clear the reset flag. */
+  MCUSR &= ~(1<<WDRF);
+  /* In order to change WDE or the prescaler, we need to set WDCE (This will allow updates for 4 clock cycles).*/
+  WDTCSR |= (1<<WDCE) | (1<<WDE);
+  /* set new watchdog timeout prescaler value */
+  WDTCSR = 1<<WDP0 | 1<<WDP3; /* 8.0 seconds */
+  /* Enable the WD interrupt (note no reset). */
+  WDTCSR |= _BV(WDIE);
   
   // WEIGHT
   // parameter "gain" is ommited; the default value 128 is used by the library
@@ -64,10 +79,12 @@ void setup()
 
 void loop()
 {
-  if (DEBUG){print_date();  }
-       if (heure!=hour())
+  
+if(f_wdt == 1)
+  {
+      if (heure!=minute())
         { 
-          heure=hour();
+          heure=minute();
             if (DEBUG) {Serial.print("Heure differente: ");Serial.println (heure);}
           // on charge les valeurs
           payload.data.id=1;
@@ -80,11 +97,17 @@ void loop()
            
           //on affiche
               if (DEBUG) {print_payload();}
-   
+          
           // On balance
             envoieSF();
         }
-    delay(1000);
+       
+    /* Don't forget to clear the flag. */
+    f_wdt = 0;
+    
+    /* Re-enter sleep mode. */
+    enterSleep();
+  }
 }
   
 void print_date () 
@@ -120,16 +143,38 @@ void print_payload()
   Serial.println("-----------------");
 }
 
+ISR(WDT_vect)
+{
+  if(f_wdt == 0){f_wdt=1;}
+  //else  {Serial.println("WDT Overrun!!!");}
+}
+
+
+void enterSleep(void)
+{
+  set_sleep_mode(SLEEP_MODE_PWR_SAVE);   
+  sleep_enable();delay(100);
+  
+  /* Now enter sleep mode. */
+    if (DEBUG) {print_date();Serial.println("SLEEP Mode activated");}
+    delay(100);
+  sleep_mode();
+  
+    /* The program will continue from here after the WDT timeout*/
+  sleep_disable(); /* First thing to do is disable sleep. */
+  
+  /* Re-enable the peripherals. */
+  power_all_enable();delay(100);
+  setTime(hour(),minute(),second()+8,day(),month(),year());
+  if (DEBUG) {print_date();Serial.println("SLEEP Mode disactivated");}
+ }
 
 float getweight(void)
 {
   scale.power_up();
-  final=scale.get_value(10)/44250; //21500
+  final=scale.get_value(10)/44250;
   scale.power_down();			        // put the ADC in sleep mode
-  //if (final>0) {
   return final;
-//}
-  //else {return 0;}
 }
 
 

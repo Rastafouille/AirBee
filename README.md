@@ -46,6 +46,8 @@ ou que le module <https://yadom.fr/reseaux-iot/sigfox/pack-10-modules-wisol-sfm1
 
 - v2
 
+<img src="Picture/PCB.jpg" width="500"/>
+
 Fait sur Circuit Maker <https://circuitmaker.com/Projects/Details/jeremy-seyssaud/AirBee-simple-version> fabriqué maison dans un premier temps mais commandé chez <https://www.pcbway.com> pour quelques € pour la v2.1.
 
 ## Packaging
@@ -56,6 +58,7 @@ Fait sur Circuit Maker <https://circuitmaker.com/Projects/Details/jeremy-seyssau
 
 - Boites commandées pour la V2.1 (6€): <https://fr.aliexpress.com/item/1-Pc-tanche-Bo-tier-En-Plastique-Bo-te-lectronique-Projet-Instrument-Cas-lectrique-Bo-te/32862281438.html?spm=a2g0s.9042311.0.0.32036c37mz9SdR>
 
+<img src="Picture/boite.jpg" width="500"/>
 
 ## Vue d'ensemble 
 
