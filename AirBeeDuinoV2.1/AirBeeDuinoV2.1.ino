@@ -1,6 +1,7 @@
 //TIME
 #include <TimeLib.h>
-int heure = 99;
+int tempo = 15;
+int chrono = 99;
 
 //activation du Serial pour le debug
 byte DEBUG = true;
@@ -75,6 +76,8 @@ void setup()
   scale.begin(A1, A0);
   //scale.set_scale();
   scale.tare();
+  
+  chrono=minute();
 }
 
 void loop()
@@ -82,10 +85,15 @@ void loop()
   
 if(f_wdt == 1)
   {
-      if (heure!=minute())
+      if (chrono!=minute()) 
+        {
+          chrono =minute(); tempo ++;
+          if (DEBUG) {Serial.print("tempo: ");Serial.println (tempo);}  
+        }
+      if (tempo >= 15)
         { 
-          heure=minute();
-            if (DEBUG) {Serial.print("Heure differente: ");Serial.println (heure);}
+          tempo=0;
+        //    if (DEBUG) {Serial.print("tempo: ");Serial.println (tempo);}
           // on charge les valeurs
           payload.data.id=1;
           payload.data.temperature = int16_t (sht1x.readTemperatureC()*10);
