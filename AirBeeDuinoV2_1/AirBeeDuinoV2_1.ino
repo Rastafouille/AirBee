@@ -1,4 +1,4 @@
-//TIME
+//TIME https://github.com/PaulStoffregen/Time
 #include <TimeLib.h>
 int tempo = 15;
 int chrono = 99;
@@ -32,8 +32,7 @@ SHT1x sht1x(dataPin, clockPin);
   SoftwareSerial SigFox(4,5); // RX, TX
 
 //définition des variable pour le payload SF
-  typedef struct rowPayload_s 
-  {
+  typedef struct  {
     uint8_t id;
     int16_t temperature;
     uint16_t humidity;
@@ -41,7 +40,7 @@ SHT1x sht1x(dataPin, clockPin);
     uint16_t bee_in; 
     uint16_t bee_out; 
     uint8_t vbat; 
-  };
+  } rowPayload_s;
 
   union payload_u
   {
@@ -90,7 +89,7 @@ if(f_wdt == 1)
           chrono =minute(); tempo ++;
           if (DEBUG) {Serial.print("tempo: ");Serial.println (tempo);}  
         }
-      if (tempo >= 15)
+      if (tempo >= 0)
         { 
           tempo=0;
         //    if (DEBUG) {Serial.print("tempo: ");Serial.println (tempo);}
@@ -184,6 +183,3 @@ float getweight(void)
   scale.power_down();			        // put the ADC in sleep mode
   return final;
 }
-
-
-
