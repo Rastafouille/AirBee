@@ -1,10 +1,11 @@
 //TIME https://github.com/PaulStoffregen/Time
 #include <TimeLib.h>
 int tempo = 15;
+int PERIODE =12;
 int chrono = 99;
 
 //activation du Serial pour le debug
-byte DEBUG = true;
+byte DEBUG = false;
 
 //WEIGHT https://github.com/bogde/HX711
 #include "HX711.h"
@@ -77,6 +78,11 @@ void setup()
   scale.tare();
   
   chrono=minute();
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);                       // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);                       // wait for a second
 }
 
 void loop()
@@ -89,7 +95,7 @@ if(f_wdt == 1)
           chrono =minute(); tempo ++;
           if (DEBUG) {Serial.print("tempo: ");Serial.println (tempo);}  
         }
-      if (tempo >= 0)
+      if (tempo >= PERIODE)
         { 
           tempo=0;
         //    if (DEBUG) {Serial.print("tempo: ");Serial.println (tempo);}
@@ -179,7 +185,7 @@ void enterSleep(void)
 float getweight(void)
 {
   scale.power_up();
-  final=scale.get_value(10)/44250;
+  final=scale.get_value(10)/36300;//(44250v1 et 36300v2)
   scale.power_down();			        // put the ADC in sleep mode
   return final;
 }

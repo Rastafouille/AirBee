@@ -66,6 +66,11 @@ Fait sur Circuit Maker <https://circuitmaker.com/Projects/Details/jeremy-seyssau
 
 <img src="Picture/ensemble2.jpg" width="500"/>
 
+- V2 
+
+<img src="Picture/ensemblev2.jpg" width="500"/>
+
+
 ## Fonctionnement
 L'Arduino centralise les données est les envoie au backend sigfox. On a droit à 140 messages de 12 Octets par jour, ca passe juste sans optimisation.
 
