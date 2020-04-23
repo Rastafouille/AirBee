@@ -40,11 +40,14 @@ ou que le module <https://yadom.fr/reseaux-iot/sigfox/pack-10-modules-wisol-sfm1
 - Capteur température humidité SHT11 (35USD) (2€ sur Aliexpress) <https://www.adafruit.com/product/246> 
 - v1 : Capteur poids X4 + Load Cell Amplifier - HX711 (5€) <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> et <https://fr.aliexpress.com/item/1PCS-HX711-Weighing-Sensor-Dual-Channel-24-Bit-Precision-A-D-Module-Pressure-Sensor-for-Arduino/32653087154.html?spm=a2g0s.9042311.0.0.zTDiLJ> 
 Impossible d'avoir une valeur stable et fiable.... du coup mieux en v2
+
 <img src="Picture/plateau.jpg" width="500"/>
   
   
   v2 : Un seul capteur 100kg + Load Cell Amplifier - HX711, bcp plus précis et sans dérive (17€) <https://fr.aliexpress.com/item/100kg-120kg-parallel-beam-type-load-cell-for-counting-scale-balance-TAL201/32616652058.html?spm=a2g0s.9042311.0.0.10bb6c37t0ZMNg>
+
 <img src="Picture/capteur2.1.jpg" width="500"/>
+
 <img src="Picture/capteur2.2.jpg" width="500"/>
   
 ## PCB
