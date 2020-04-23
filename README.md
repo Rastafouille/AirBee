@@ -99,14 +99,14 @@ Sigfox renvoie les données via des CallBacks vers serveur perso (php-->json) et
 <img src="Picture/poids.png" width="500"/>
 
 
-# RELEASE
+# Release
 - v2 : suppression du RTC / changement capteur de poids et plateau / carte electronique dédiée faite maison
 
 - V2.1: boite / connecteur / PCB pro / rafraichissement toutes les 15 min
 
 
-# perspectives
-- Rajouter le compteur d'abeille
+# Perspectives
+- Rajouter le compteur d'abeilles
 
 - Rajouter une station météo mais les données capteurs humudité+température+tension batterie (ensoleillement) peuvent suffires.
 
