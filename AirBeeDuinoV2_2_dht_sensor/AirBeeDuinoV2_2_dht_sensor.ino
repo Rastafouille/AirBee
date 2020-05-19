@@ -5,7 +5,7 @@ int PERIODE =12;
 int chrono = 99;
 
 //activation du Serial pour le debug
-byte DEBUG = true;
+byte DEBUG = false;
 
 //WEIGHT https://github.com/bogde/HX711
 #include "HX711.h"
@@ -21,12 +21,15 @@ float inter;
 volatile int f_wdt=1;
 
 
-// SHT15 Temperature et humidité https://github.com/practicalarduino/SHT1x
-#include <SHT1x.h>
-#define dataPin  2
-#define clockPin 3
-SHT1x sht1x(dataPin, clockPin);
+//DHT humidity/temperature sensors
 
+// REQUIRES the following Arduino libraries:
+// - DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
+// - Adafruit Unified Sensor Lib: https://github.com/adafruit/Adafruit_Sensor
+#include "DHT.h"
+#define DHTPIN 2
+#define DHTTYPE DHT22 
+DHT dht(DHTPIN, DHTTYPE);
 
 // connexion serie pour Sigfox
   #include <SoftwareSerial.h>
@@ -53,6 +56,8 @@ SHT1x sht1x(dataPin, clockPin);
 void setup()
 {
   pinMode(13, OUTPUT);
+
+  dht.begin();
   
   if (DEBUG) 
   { Serial.begin(9600);Serial.println("Starting up"); delay(100);}
@@ -100,14 +105,15 @@ if(f_wdt == 1)
           tempo=0;
         //    if (DEBUG) {Serial.print("tempo: ");Serial.println (tempo);}
           // on charge les valeurs
+    
           payload.data.id=1;
-          payload.data.temperature = int16_t (sht1x.readTemperatureC()*10);
-          payload.data.humidity = int16_t (sht1x.readHumidity()*10);
+          payload.data.temperature = int16_t (dht.readTemperature()*10);
+          payload.data.humidity = int16_t (dht.readHumidity()*10);
           payload.data.weight=int16_t (getweight()*10);
           payload.data.bee_in=0;
           payload.data.bee_out=0;
           payload.data.vbat= int(analogRead(A3) * (50 / 1023.0));
-           
+            delay(500);
           //on affiche
               if (DEBUG) {print_payload();}
           
