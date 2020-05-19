@@ -104,7 +104,7 @@ Sigfox renvoie les données via des CallBacks vers serveur perso (php-->json) et
 
 - V2.1: boite / connecteur / PCB pro / rafraichissement toutes les 15 min
 
-- V2.2 : soudage pieds au plateau / DHT22 car SHT11 plus dispo / module sigfox en 3.3v / passage de circuit maker à easyEDA
+- V2.2 04/2020 : soudage pieds au plateau / DHT22 car SHT11 plus dispo / module sigfox en 3.3v / passage de circuit maker à easyEDA
 
 
 # Perspectives
