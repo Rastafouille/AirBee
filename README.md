@@ -37,9 +37,7 @@ ou que le module <https://yadom.fr/reseaux-iot/sigfox/pack-10-modules-wisol-sfm1
 ## Coté Capteur :
 - pour avoir l'heure RTC  <https://www.adafruit.com/product/3296> (7.5USD) -- pas indispensable, supprimé sur la v2.
 - Compteur I/O abeilles : projet BeeCounter2 (25USD) <http://www.instructables.com/id/Honey-Bee-Counter-II/> pas fait finalement.
-- Capteur température humidité SHT11 (35USD) (2€ sur Aliexpress) <https://www.adafruit.com/product/246> 
-
- une autre version avec DHT22 marche tres bien aussi
+- Capteur température humidité SHT11 (35USD) (2€ sur Aliexpress) <https://www.adafruit.com/product/246>. Une autre version avec DHT22 marche trés bien aussi.
 - v1 : Capteur poids X4 + Load Cell Amplifier - HX711 (5€) <https://fr.aliexpress.com/item/FREE-SHIPPING-20pcs-lot-Experiments-body-scale-wholesale-human-scale-load-cell-sensor-resistance-strain-50kg/32271599811.html> et <https://fr.aliexpress.com/item/1PCS-HX711-Weighing-Sensor-Dual-Channel-24-Bit-Precision-A-D-Module-Pressure-Sensor-for-Arduino/32653087154.html?spm=a2g0s.9042311.0.0.zTDiLJ> 
 Impossible d'avoir une valeur stable et fiable.... du coup mieux en v2
 
